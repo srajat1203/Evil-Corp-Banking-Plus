@@ -73,7 +73,7 @@ public class BankApp {
 		while(choice1.equalsIgnoreCase("y"))
 		{
 			
-				//Only enter if a new account is to be created
+				//Only enter if a new account is to be created. Do not enter previously created account here
 				System.out.print("Enter an account # to create an account or -1 to stop entering accounts : ");
 				int accno = sc.nextInt();
 				if(accno == -1)
@@ -108,6 +108,11 @@ public class BankApp {
 		{
 			System.out.print("Enter a transaction type (Check (C), Debit card(DC), Deposit(D), Withdrawal(W), or Close(CL) or -1 to finish : ");
 			String des = sc.next();
+			while(!des.equalsIgnoreCase("C") && !des.equalsIgnoreCase("DC") && !des.equalsIgnoreCase("D") && !des.equalsIgnoreCase("W") && !des.equalsIgnoreCase("CL") && !des.equalsIgnoreCase("-1"))
+			{
+				System.out.print("Invalid option. Pick again  ");
+				des = sc.next();
+			}
 			if(des.equalsIgnoreCase("-1"))
 			{
 				
