@@ -34,14 +34,19 @@ public class Accounts {
 	
 	public void deleteAccount(AccountInfo acc)
 	{
+		AccountInfo tmp = null;
 		int accno  = acc.getAccNo();
 		for(AccountInfo cur: list)
 		{
 			int curr_accno = cur.getAccNo();
 			if(curr_accno == accno)
 			{
-				list.remove(cur);
+				tmp = cur;
 			}
+		}
+		if(tmp != null)
+		{
+			list.remove(tmp);
 		}
 	}
 	

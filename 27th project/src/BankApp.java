@@ -14,7 +14,7 @@ public class BankApp {
 		
 		
 		//Reading accouts from file
-		String filename = (System.getProperty("user.dir") + File.separatorChar +"Bank14.txt");
+		String filename = (System.getProperty("user.dir") + File.separatorChar +"Bank9.txt");
 		
 		File f = new File(filename);
 		if(f.isFile())
@@ -155,6 +155,8 @@ public class BankApp {
 				}
 			}
 			
+		
+			
 			else if(des.equalsIgnoreCase("C"))
 			{
 				/*
@@ -219,16 +221,19 @@ public class BankApp {
 		ArrayList<AccountInfo> bankList = accounts.getAccounts();
 		try 
 		{	writer = new PrintWriter(new File(filename));
-		    for (AccountInfo curr_account: bankList)
-		    {
-		    	int accNo = curr_account.getAccNo();
-		    	double accBal = curr_account.getBalance();
-		    	System.out.println("The balance for the account " + accNo + " is " + accBal);
-		    	String accName = curr_account.getName();
-		    	writer.println(accNo);
-		    	writer.println(accName);
-		    	writer.println(accBal);
-		    	
+		    if(!bankList.isEmpty())
+		    {	
+				for (AccountInfo curr_account: bankList)
+			    {
+			    	int accNo = curr_account.getAccNo();
+			    	double accBal = curr_account.getBalance();
+			    	System.out.println("The balance for the account " + accNo + " is " + accBal);
+			    	String accName = curr_account.getName();
+			    	writer.println(accNo);
+			    	writer.println(accName);
+			    	writer.println(accBal);
+			    	
+			    }	
 		    }	
 		}
 		catch (FileNotFoundException e1)
